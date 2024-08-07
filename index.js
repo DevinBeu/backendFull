@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 require("dotenv").config();
+app.use(express.static("dist"));
 
 let notes = [
   {
@@ -19,8 +21,6 @@ let notes = [
     important: false,
   },
 ];
-
-app.use(express.static("dist"));
 
 const requestLogger = (request, response, next) => {
   console.log("Method:", request.method);
